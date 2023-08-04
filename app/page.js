@@ -3,40 +3,33 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Navbar } from "./Navbar";
-function Section({ children }) {
+
+export default function Home() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
 
-  return (
-    <section ref={ref}>
-      <span
-        style={{
-          transform: isInView ? "none" : "translateX(-200px)",
-          opacity: isInView ? 1 : 0,
-          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-        }}
-      >
-        {children}
-      </span>
-    </section>
-  );
-}
-export default function Home() {
   return (
     <main className="">
       <div className="main font-manrope font-extralight">
         <Navbar />
 
-        <section className="hero">
+        <section ref={ref} className="hero">
           <div className="page-padding px-[2rem] sm:px-[4rem] w-full ">
             <div className="vertical-padding md:py-[8rem] py-[4rem]">
               <div className="w-full max-w-[87.5rem] mx-auto">
                 <div className="w-full max-w-[78rem] mb-4">
-                  <Section>
+                  <div
+                    style={{
+                      transform: isInView ? "none" : "translateX(-200px)",
+                      opacity: isInView ? 1 : 0,
+                      transition:
+                        "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                    }}
+                  >
                     <h1 className="text-[3.5rem] sm:text-[3.25rem] md:text-[4rem] lg:text-[6.5vw] 2xl:text-8xl leading-[110%]">
                       Unleashing The Potential of Your Online Presence
                     </h1>
-                  </Section>
+                  </div>
                 </div>
 
                 <div className="margin-bottom mb-10">
@@ -58,87 +51,81 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <Section>
-          <section className="services ">
-            <div className="page-padding px-[2rem] sm:px-[4rem]">
-              <div className="grid 2xl:grid-cols-4 md:grid-cols-2 gap-8">
-                <div className="p-[2rem] bg-[#f8f8f8]">
-                  <div>
-                    <h1 className="mb-[1rem] text-[1.5rem]">Design</h1>
-                  </div>
-                  <div className="mb-[2rem] opacity-60 text-[16px] leading-[180%] text-[#222222]">
-                    Transforming ideas into captivating visuals, our graphic
-                    design services bring your visions to life with precision
-                    and creativity.
-                  </div>
-                  <a className="underline underline-offset-4" href="">
-                    About Graphic Design
-                  </a>
+
+        <section className="services ">
+          <div className="page-padding px-[2rem] sm:px-[4rem]">
+            <div className="grid 2xl:grid-cols-4 md:grid-cols-2 gap-8">
+              <div className="p-[2rem] bg-[#f8f8f8]">
+                <div>
+                  <h1 className="mb-[1rem] text-[1.5rem]">Design</h1>
+                </div>
+                <div className="mb-[2rem] opacity-60 text-[16px] leading-[180%] text-[#222222]">
+                  Transforming ideas into captivating visuals, our graphic
+                  design services bring your visions to life with precision and
+                  creativity.
+                </div>
+                <a className="underline underline-offset-4" href="">
+                  About Graphic Design
+                </a>
+              </div>
+
+              <div className="p-[2rem] bg-[#f8f8f8]">
+                <div>
+                  <h1 className="mb-[1rem] text-[1.5rem] ">Animation</h1>
+                </div>
+                <div className="mb-[2rem] opacity-60 text-[#222222]">
+                  Unlock the realm of imagination with our animation services,
+                  where stories come alive through vibrant visuals and dynamic
+                  motion.
+                </div>
+                <a className="underline underline-offset-4" href="">
+                  About Animation
+                </a>
+              </div>
+
+              <div className="p-[2rem] bg-[#f8f8f8]">
+                <div>
+                  <h1 className="mb-[1rem] text-[1.5rem]">Web Development</h1>
+                </div>
+                <div className="mb-[2rem] opacity-60 text-[#222222]">
+                  Unleash the power of code and creativity as we forge digital
+                  landscapes that transcend the screen.
+                </div>
+                <a className="underline underline-offset-4" href="">
+                  About Web Development
+                </a>
+              </div>
+
+              <div className="p-[2rem] bg-[#f8f8f8]">
+                <div>
+                  <h1 className="mb-[1rem] text-[1.5rem] ">Data Engineering</h1>
                 </div>
 
-                <div className="p-[2rem] bg-[#f8f8f8]">
-                  <div>
-                    <h1 className="mb-[1rem] text-[1.5rem] ">Animation</h1>
-                  </div>
-                  <div className="mb-[2rem] opacity-60 text-[#222222]">
-                    Unlock the realm of imagination with our animation services,
-                    where stories come alive through vibrant visuals and dynamic
-                    motion.
-                  </div>
-                  <a className="underline underline-offset-4" href="">
-                    About Animation
-                  </a>
+                <div className="mb-[2rem] opacity-60 text-[#222222]">
+                  We unlock business success by refining massive scraped
+                  datasets into clear, actionable insights ready to drive
+                  growth.
                 </div>
-
-                <div className="p-[2rem] bg-[#f8f8f8]">
-                  <div>
-                    <h1 className="mb-[1rem] text-[1.5rem]">Web Development</h1>
-                  </div>
-                  <div className="mb-[2rem] opacity-60 text-[#222222]">
-                    Unleash the power of code and creativity as we forge digital
-                    landscapes that transcend the screen.
-                  </div>
-                  <a className="underline underline-offset-4" href="">
-                    About Web Development
-                  </a>
-                </div>
-
-                <div className="p-[2rem] bg-[#f8f8f8]">
-                  <div>
-                    <h1 className="mb-[1rem] text-[1.5rem] ">
-                      Data Engineering
-                    </h1>
-                  </div>
-
-                  <div className="mb-[2rem] opacity-60 text-[#222222]">
-                    We unlock business success by refining massive scraped
-                    datasets into clear, actionable insights ready to drive
-                    growth.
-                  </div>
-                  <a className="underline underline-offset-4 " href="">
-                    About Data Engineering
-                  </a>
-                </div>
+                <a className="underline underline-offset-4 " href="">
+                  About Data Engineering
+                </a>
               </div>
             </div>
-          </section>
-        </Section>
+          </div>
+        </section>
 
         <section className="our-work ">
           <div className="page-padding px-[2rem] sm:px-[4rem] ">
-            <Section>
-              <div className="padding-top pt-[3.5rem] mb-8">
-                <div className="margin-bottom ">
-                  <div className="border-b pb-4 mb-[2rem] text-[16px]">
-                    {" "}
-                    OUR WORK
-                  </div>
-                  <div className="text-[2rem] "><Section>Selected Work</Section></div>
+            <div className="padding-top pt-[3.5rem] mb-8">
+              <div className="margin-bottom ">
+                <div className="border-b pb-4 mb-[2rem] text-[16px]">
+                  {" "}
+                  OUR WORK
                 </div>
+                <div className="text-[2rem] ">Selected Work</div>
               </div>
-            </Section>
+            </div>
 
-            <Section>
             <div className="work-list">
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                 <div>
@@ -202,20 +189,17 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            </Section>
           </div>
         </section>
 
         <section className="values pb-14">
           <div className="page-padding px-[2rem] sm:px-[4rem]">
             <div className="padding-top pt-[3.5rem] border-b pb-4 mb-[2rem] text-[16px]">
-              <Section> OUR VALUES</Section>
+              OUR VALUES
             </div>
-            <Section>
+
             <div className="values-grid grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              
               <div className="bg-[#F1F5F9]">
-                
                 <div className="padding px-[1.5rem] py-[1.25rem] h-full flex flex-col items-start justify-between">
                   <div className="mb-[3.5rem] 2xl:mb-[6rem]">
                     <div className="text-sm mb-[1rem]">SERVICES</div>
@@ -319,17 +303,13 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="mt-[1.5rem] sm:col-span-2 lg:col-start-2 lg:col-end-4">
                 <div className="mb-5 text-[2rem] md:text-[3rem] xl:leading-tight">
-                  <Section>
                   Building Digital Presence From Idea to Execution: Our Goal at
                   Mentign.
-                  </Section>
-                  
                 </div>
                 <div className="text-base md:text-lg">
-                  <Section>
                   At Mentign, we build exceptional digital experiences across
                   platforms to connect brands and audiences. With technology now
                   integral to customer engagement, an optimized online presence
@@ -342,15 +322,13 @@ export default function Home() {
                   next level. With a keen understanding of design, technology
                   and strategy, we create digitally-driven solutions that engage
                   your customers and drive real results.
-                  </Section>
                 </div>
               </div>
             </div>
-            </Section>
           </div>
         </section>
 
-        <Section className="contact pb-[2rem]">
+        <section className="contact pb-[2rem]">
           <div className="page-padding px-[2rem] sm:px-[4rem] ">
             <div className="contact-grid grid grid-cols-1 gap-4 bg-[#F1F6F5] padding px-[1.5rem] py-[1.25rem] h-full md:grid-cols-[0.3fr,1fr] lg:p-[6rem] md:p-[4rem] ">
               <div>CONTACT</div>
@@ -388,7 +366,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </Section>
+        </section>
 
         <div className="page-padding px-[2rem] sm:px-[4rem]">
           {" "}
