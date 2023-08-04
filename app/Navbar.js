@@ -1,7 +1,6 @@
 "use client";
-import React from "react";
+import { motion } from "framer-motion";
 import { useState } from "react";
-import {motion} from "framer-motion";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +9,10 @@ export const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-
+  const variants = {
+    open: { opacity: 1, y: 0 },
+    closed: { opacity: 0, y: "-50%" },
+  }
   return (
     <nav className="px-[2rem] pt-8 sm:px-[4rem]">
       <div className="flex justify-between items-center border-b pb-4">
@@ -69,7 +71,12 @@ export const Navbar = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="mobile-menu block absolute text-white z-10 text-[16px] w-full left-0 right-0">
+        <motion.div
+        variants={variants}
+        initial="closed"
+        animate={isOpen ? "open" : "closed"}
+
+        className="mobile-menu block absolute text-white z-10 text-[16px] w-full left-0 right-0">
           <div className="page-padding px-[1.75rem]">
             <div className="wrapper p-[1.5rem] bg-black">
               <div className="flex flex-col gap-8">
@@ -87,7 +94,7 @@ export const Navbar = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </nav>
   );
